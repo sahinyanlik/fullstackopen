@@ -4,7 +4,7 @@ sequenceDiagram
     participant browser
     participant server
 
-    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/notes
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/spa
     activate server
     server-->>browser: HTML document
     deactivate server
@@ -14,7 +14,7 @@ sequenceDiagram
     server-->>browser: the css file
     deactivate server
 
-    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.js
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/spa.js
     activate server
     server-->>browser: the JavaScript file
     deactivate server
@@ -27,4 +27,13 @@ sequenceDiagram
     deactivate server
 
     Note right of browser: The browser executes the callback function that renders the notes
+
+    For creating new note
+
+    browser-->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+    create note with the data: {"content":"eeee","date":"2024-05-25T15:20:11.487Z"}
+    server-->>browser: { "message": "note created"} , Status: 201 Created
+
+    Afther that notes will be push to notes and renders it immediately without refreshing page.
+    e.preventDefault prevent browser to handle form submit.
 ```
