@@ -29,7 +29,7 @@ sequenceDiagram
     Note right of browser: The browser executes the callback function that renders the notes
 
     browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
-    create note with the data {"content":"eeee","date":"2024-05-25T15:20:11.487Z"}
+    create note with the data 
     server-->>browser: { "message": "note created"} , Status: 201 Created
 
     Note right of browser: Afther that notes will be push to notes and renders it immediately without refreshing page. e.preventDefault prevent browser to handle form submit.
