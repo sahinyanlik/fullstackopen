@@ -22,9 +22,14 @@ const Part = (props) => {
 };
 
 const Total = (props) => {
+
+  const calculateTotal = (parts) =>{
+    return  parts[0].exercises + parts[1].exercises + parts[2].exercises
+  }
+
   return (
     <p>
-      <p>Number of exercises {props.parts[0].exercises + props.parts[1].exercises + props.parts[2].exercises}</p>
+      <p>Number of exercises {calculateTotal(props.parts)}</p>
     </p>
   );
 };
