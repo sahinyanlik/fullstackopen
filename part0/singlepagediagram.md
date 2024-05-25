@@ -32,6 +32,8 @@ sequenceDiagram
     activate server
     server-->>browser: { "message": "note created"} , Status: 201 Created
     deactivate server
-    
+
     Note right of browser: Afther that notes will be push to notes and renders it immediately without refreshing page. e.preventDefault prevent browser to handle form submit.
 ```
+
+This diagram includes both rendering main page as well as saving post through ( new_note_spa ) and pushing it to notes list and rendering without page refresh.
