@@ -30,7 +30,7 @@ sequenceDiagram
 
     For creating new note
 
-    browser-->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+    browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
     create note with the data: {"content":"eeee","date":"2024-05-25T15:20:11.487Z"}
     server-->>browser: { "message": "note created"} , Status: 201 Created
 
