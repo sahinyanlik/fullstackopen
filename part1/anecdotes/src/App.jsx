@@ -4,7 +4,6 @@ function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
 
-
 const App = () => {
   const anecdotes = [
     'If it hurts, do it more often.',
@@ -16,16 +15,23 @@ const App = () => {
     'Programming without an extremely heavy use of console.log is same as if a doctor would refuse to use x-rays or blood tests when diagnosing patients.',
     'The only way to go fast, is to go well.'
   ]
-   
+  const updateVote = (val) => {
+    const copy = { ...vote }
+    copy[val] += 1 ;
+    setVote(copy)
+  }
+
   const [selected, setSelected] = useState(0)
+  const [vote, setVote] = useState(new Uint8Array(anecdotes.length))
 
   return (
     <div>
       {anecdotes[selected]}
       <br/>
       <button onClick={()=>setSelected(getRandomInt(anecdotes.length))}>next anecdotes</button>
+      has {vote[selected]}
+      <button onClick={()=>updateVote(selected)}>vote</button>
     </div>
   )
 }
-
 export default App
