@@ -14,17 +14,41 @@ const Statistics = (props) => {
   return(
     <div>
       <h1>Statistics</h1>
-      <StatisticLine text="good" value ={props.good}/>
-      <StatisticLine text="neutral" value ={props.neutral} />
-      <StatisticLine text="bad" value ={props.bad} />
-      all {props.good+props.bad+props.neutral}<br/>
-      average {((props.good*1)+(props.bad*-1))/(props.good+props.bad+props.neutral)}<br/>
-      positive {(props.good)/(props.good+props.bad+props.neutral)}%<br/>
+      
+      <table>
+        <thead>
+        </thead>
+        <tbody>
+        <tr>
+          <td>Good</td>
+          <td>
+          <StatisticLine text="good" value ={props.good}/>
+          </td>
+        </tr>
+        <tr>
+          <td>Neutral</td>
+          <td><StatisticLine text="neutral" value ={props.neutral} /></td>
+        </tr>
+        <tr>
+          <td>Bad</td>
+          <td><StatisticLine text="bad" value ={props.bad} /></td>
+        </tr>
+        <tr>
+          <td>all</td>
+          <td>{props.good+props.bad+props.neutral}</td>
+        </tr>
+        <tr>
+          <td>average</td>
+          <td>{((props.good*1)+(props.bad*-1))/(props.good+props.bad+props.neutral)}</td>
+        </tr>
+        <tr>
+          <td>positive</td>
+          <td>{(props.good)/(props.good+props.bad+props.neutral)}%</td>
+        </tr>
+        </tbody>
+        </table>
       </div>
   )
-
-
-  
 };
 const App = () => {
   // save clicks of each button to its own state
