@@ -18,11 +18,20 @@ const App = () => {
   const updateVote = (val) => {
     const copy = { ...vote }
     copy[val] += 1 ;
+    setHighest(findHighestVote(copy));
     setVote(copy)
   }
 
   const [selected, setSelected] = useState(0)
   const [vote, setVote] = useState(new Uint8Array(anecdotes.length))
+  const [high, setHighest] = useState(0)
+
+  const findHighestVote = (values) => {
+    console.log(values);
+    const highestVote = Object.keys(values).reduce((a, b) => (values[a] > values[b] ? a : b));
+    console.log(highestVote)
+    return highestVote;
+  };
 
   return (
     <div>
@@ -31,6 +40,8 @@ const App = () => {
       <button onClick={()=>setSelected(getRandomInt(anecdotes.length))}>next anecdotes</button>
       has {vote[selected]}
       <button onClick={()=>updateVote(selected)}>vote</button>
+      <h1>Anectodes with mosth votes </h1>
+      {anecdotes[high]}
     </div>
   )
 }
